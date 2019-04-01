@@ -10,14 +10,14 @@
     Why, I refer to "two training stage"? That need you to understand the triplet-group method. 
     And very very welcome to my mailbox: primtee_nxg@163.com.
 
-    The first stage, I use the classic VGG net to train our data set (just use 100 people , VOX). 
+    The first stage(See train.py), I use the classic VGG net to train our data set (just use 100 people , VOX). 
     The net I upload before. You can find it. Of course, the net written by tensorflow. 
-    This stage,  the model converged after  250 training cycles.
+    This stage,  the model converged after  250 training cycles. 
     
-    The second stage, upload the fist stage model as pre-training model for this stage. 
+    The second stage(See triplst_train.py), upload the fist stage model as pre-training model for this stage. 
     I just upload the 150th episode trained model as pre-training model,maybe else.
     The prediction acc of 150th episode model achieved 0.89.
     
-    first training stage curve, first_training.png
-    second training stage curve, second_training.png
+    first training stage curve, first_stage_training.png
+    second training stage curve, second_stage_training.png
     

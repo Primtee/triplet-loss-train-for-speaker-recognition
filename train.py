@@ -20,58 +20,6 @@ h = 300
 c = 3
 n_epoch = 250
 
-
-# class PairwiseDistance():
-#     def __init__(self, p):
-#         super(PairwiseDistance, self).__init__()
-#         self.norm = p
-#
-#     def forward(self, x1, x2):
-#         assert x1.size() == x2.size()
-#         eps = 1e-4 / x1.size(1)
-#         diff = tf.abs(x1 - x2)
-#         out = tf.reduce_sum(pow(diff, self.norm),1)
-#         return tf.pow(out + eps, 1. / self.norm)
-#
-# l2_dist = PairwiseDistance(2)
-#
-#
-# class TripletMarginLoss():
-#     """Triplet loss function.
-#     """
-#     def __init__(self, margin):
-#         super(TripletMarginLoss, self).__init__()
-#         self.margin = margin
-#         self.pdist = PairwiseDistance(2)  # norm 2
-#
-#     def forward(self, anchor, positive, negative):
-#         d_p = self.pdist.forward(anchor, positive)
-#         d_n = self.pdist.forward(anchor, negative)
-#
-#         dist_hinge = tf.clamp(self.margin + d_p - d_n, min=0.0)
-#         loss = tf.reduce_mean(dist_hinge)
-#         return loss
-#
-#
-# def triplet_loss(out_a,out_p,out_n):
-#     d_p = l2_dist.forward(out_a, out_p)
-#     d_n = l2_dist.forward(out_a, out_n)
-#     # all = (d_n - d_p < args.margin).cpu().data.numpy().flatten()
-#     all = (d_n - d_p < 0.1).cpu().data.numpy().flatten()
-#
-#     # log loss value for mini batch.
-#     total_coorect = np.where(all == 0)
-#     print('Minibatch Train Accuracy', len(total_coorect[0]))
-#
-#     total_dist = (d_n - d_p).cpu().data.numpy().flatten()
-#     print('Minibatch Train distance', np.mean(total_dist))
-#
-#     hard_triplets = np.where(all == 1)
-#     if len(hard_triplets[0]) == 0:
-#         return
-#     return TripletMarginLoss(MARGIN).forward(out_selected_a, out_selected_p, out_selected_n)
-
-
 def net(in_put, n_class=100, train=True, if_regularizer=True):
         """
         VGG网络结构
@@ -248,14 +196,6 @@ with tf.Session() as sess:
         #     summary_writer.flush()
         # del train_data1
         # del train_batch_data1
-        # #validation#验证集
-        # val_loss, val_acc, n_batch = 0, 0, 0
-        # for x_val_a, y_val_a in minibatches(x_val, y_val, batch_size, shuffle=False):
-        #     err, ac = sess.run([loss,acc], feed_dict={x: x_val_a, y_: y_val_a})
-        #     val_loss += err; val_acc += ac; n_batch += 1
-        #     print("   validation loss: %f" % (np.sum(val_loss)/ n_batch))
-        #     print("   validation acc: %f" % (np.sum(val_acc)/ n_batch))
-        #保存模型及模型参数
         if epoch % 2 == 0:
              saver.save(sess, model_path, global_step=epoch)
 

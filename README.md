@@ -2,7 +2,8 @@
     Before, I upload a very classic VGG based model for speaker recognition . 
     The model simply use softmax-loss to train super-parameters. 
     But during testing stage,we found the model is not very reliable.
-    For example, the model can easily distinguish man-man group, and man-woman group, but difficultly in woman-woman. 
+    For example, the model can easily distinguish man-man group, and man-woman group, 
+    but difficultly in woman-woman. 
     So, we try another method called triplet-group to retrain our model.
     Of course, we use triplet-loss as the loss for back propagation. 
     Then I upload our core code, and training curve for the two training stage. 

@@ -21,3 +21,13 @@
     first training stage curve, first_stage_training.png
     second training stage curve, second_stage_training.png
     
+    Test model
+      request :curl "http://192.168.99.214:19001/recognize?filename=/data/register/188188.wav&ranges=188881|190001"
+      cosin score are: [[0.9889], [0.3467]]
+      results : 188881
+    We may enrollment more than 100 people for one time, but just three of them needed in that snene. So, the ranges param means the exact people we need.
+    http://192.168.99.214:19001: is the voiceprint server IP.
+    recognize: means the type of voiceprint
+    filename: means the voice path
+    
+    

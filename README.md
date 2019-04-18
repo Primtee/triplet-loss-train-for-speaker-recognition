@@ -30,4 +30,8 @@
     recognize: means the type of voiceprint
     filename: means the voice path
     
+    note:
+        Some call me that the files uploaded are not runable, so I upload the complete file compressed by rar.
+I try my best to upload the trained model.
+    
     
